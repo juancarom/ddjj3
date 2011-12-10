@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111209234104) do
+ActiveRecord::Schema.define(:version => 20111210104805) do
 
   create_table "agentes", :force => true do |t|
     t.integer  "dni"
@@ -23,6 +23,19 @@ ActiveRecord::Schema.define(:version => 20111209234104) do
     t.integer  "numero_de_celular"
     t.integer  "numero_de_telefono_fijo"
     t.integer  "domicilio_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "profesion_agentes", :force => true do |t|
+    t.integer  "profesion_id"
+    t.integer  "agente_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "profesions", :force => true do |t|
+    t.string   "nombre"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

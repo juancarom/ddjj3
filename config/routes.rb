@@ -1,4 +1,8 @@
 Ddjj3::Application.routes.draw do
+  resources :profesion_agentes
+
+  resources :profesions
+
   resources :agentes
 
   # The priority is based upon order of creation:

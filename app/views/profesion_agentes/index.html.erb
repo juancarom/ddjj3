@@ -1,0 +1,25 @@
+<h1>Listing profesion_agentes</h1>
+
+<table>
+  <tr>
+    <th>Profesion</th>
+    <th>Agente</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @profesion_agentes.each do |profesion_agente| %>
+  <tr>
+    <td><%= profesion_agente.profesion_id %></td>
+    <td><%= profesion_agente.agente_id %></td>
+    <td><%= link_to 'Show', profesion_agente %></td>
+    <td><%= link_to 'Edit', edit_profesion_agente_path(profesion_agente) %></td>
+    <td><%= link_to 'Destroy', profesion_agente, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Profesion agente', new_profesion_agente_path %>

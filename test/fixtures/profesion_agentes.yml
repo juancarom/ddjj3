@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  profesion_id: 1
+  agente_id: 1
+
+two:
+  profesion_id: 1
+  agente_id: 1
