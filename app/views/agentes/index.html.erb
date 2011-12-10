@@ -1,4 +1,4 @@
-<h1>Listing agentes</h1>
+<h1>Listado de agentes</h1>
 
 <table>
   <tr>
@@ -29,13 +29,13 @@
     <td><%= agente.numero_de_celular %></td>
     <td><%= agente.numero_de_telefono_fijo %></td>
     <td><%= agente.domicilio_id %></td>
-    <td><%= link_to 'Show', agente %></td>
-    <td><%= link_to 'Edit', edit_agente_path(agente) %></td>
-    <td><%= link_to 'Destroy', agente, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Ver', agente %></td>
+    <td><%= link_to 'Editar', edit_agente_path(agente) %></td>
+    <td><%= link_to 'Eliminar', agente, :confirm => 'Esta seguro de que desea eliminar el Agente?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Agente', new_agente_path %>
+<%= link_to 'Agregar agente', new_agente_path %>

@@ -25,7 +25,7 @@
   </div>
   <div class="field">
     <%= f.label :fecha_de_nacimiento %><br />
-    <%= f.date_select :fecha_de_nacimiento %>
+    <%= (f.date_select :fecha_de_nacimiento, :start_year => 1900, :use_month_numbers => true, :include_blank => true,:order => [:day, :month, :year]) %>
   </div>
   <div class="field">
     <%= f.label :cuil %><br />

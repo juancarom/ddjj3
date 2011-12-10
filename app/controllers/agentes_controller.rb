@@ -44,7 +44,7 @@ class AgentesController < ApplicationController
 
     respond_to do |format|
       if @agente.save
-        format.html { redirect_to(@agente, :notice => 'Agente was successfully created.') }
+        format.html { redirect_to(@agente, :notice => 'El Agente fue correctamente creado') }
         format.xml  { render :xml => @agente, :status => :created, :location => @agente }
       else
         format.html { render :action => "new" }
@@ -60,7 +60,7 @@ class AgentesController < ApplicationController
 
     respond_to do |format|
       if @agente.update_attributes(params[:agente])
-        format.html { redirect_to(@agente, :notice => 'Agente was successfully updated.') }
+        format.html { redirect_to(@agente, :notice => 'El Agente fue correctamente actualizado.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
