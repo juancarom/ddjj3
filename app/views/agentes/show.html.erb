@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Dni:</b>
+  <%= @agente.dni %>
+</p>
+
+<p>
+  <b>Nombre:</b>
+  <%= @agente.nombre %>
+</p>
+
+<p>
+  <b>Apellido:</b>
+  <%= @agente.apellido %>
+</p>
+
+<p>
+  <b>Fecha de nacimiento:</b>
+  <%= @agente.fecha_de_nacimiento %>
+</p>
+
+<p>
+  <b>Cuil:</b>
+  <%= @agente.cuil %>
+</p>
+
+<p>
+  <b>Matricula numero:</b>
+  <%= @agente.matricula_numero %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @agente.email %>
+</p>
+
+<p>
+  <b>Numero de celular:</b>
+  <%= @agente.numero_de_celular %>
+</p>
+
+<p>
+  <b>Numero de telefono fijo:</b>
+  <%= @agente.numero_de_telefono_fijo %>
+</p>
+
+<p>
+  <b>Domicilio:</b>
+  <%= @agente.domicilio_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_agente_path(@agente) %> |
+<%= link_to 'Back', agentes_path %>
