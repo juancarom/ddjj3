@@ -1,0 +1,2 @@
+module RelacionAgenteProfesionHelper
+end

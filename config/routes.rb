@@ -1,4 +1,13 @@
 Ddjj3::Application.routes.draw do
+  post "relacion_agente_profesion/guardar"
+  
+ 
+  #scope :module => 'relacion_agente_profesion' do
+   # resources :guardar
+  #end
+        
+  get "relacion_agente_profesion/agregarProfesionAgente"
+
   resources :profesion_agentes
 
   resources :profesions

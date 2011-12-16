@@ -1,0 +1,16 @@
+<h2>Agregar Relacion al agente</h2>
+<%#new_article_url(@article) 
+%>
+<%= form_tag 'guardar' do %>
+  <input name="id" type="hidden" value="<%=@agente.id%>" />
+  
+  <select name="idProfesion" id="idProfesion" %>
+  <% @Profesiones = Profesion.all %>
+  <% @Profesiones.each do |profesion| %>
+  	<option value="<%= profesion.id %>"><%= profesion.nombre %></option>
+  <% end %>
+  </input>
+  
+  
+  <%= submit_tag "Agregar" %>
+<% end %>

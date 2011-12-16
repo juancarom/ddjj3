@@ -53,3 +53,28 @@
 
 <%= link_to 'Editar', edit_agente_path(@agente) %> |
 <%= link_to 'Atras', agentes_path %>
+
+<!--################################################################################-->
+
+<h3>Listado de Profesiones del agente</h3><br />
+
+<table>
+  <tr>
+    <th>Profesion</th>
+    <th></th>
+    <th></th>
+  </tr>
+<% @profesion_agente = ProfesionAgente.find(:all, :conditions => {:agente_id => @agente})%>
+<% @profesion_agente.each do |profesion_agente| %>
+  <tr>
+    <td><%= profesion_agente.profesion.nombre %></td>
+    <td></td> 
+    <td><%= link_to 'Eliminar', profesion_agente, :confirm => 'Desea quitar profesion al agente?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Agregar Profesion al agente', :controller => 'relacion_agente_profesion', :action=> 'agregarProfesionAgente', :id => @agente %>
+
