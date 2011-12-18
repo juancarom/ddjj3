@@ -40,6 +40,7 @@ class AgentesController < ApplicationController
   # POST /agentes
   # POST /agentes.xml
   def create
+  #  @dni = params[:agente, :dni]
     @agente = Agente.new(params[:agente])
 
     respond_to do |format|
@@ -79,5 +80,46 @@ class AgentesController < ApplicationController
       format.html { redirect_to(agentes_url) }
       format.xml  { head :ok }
     end
+  end
+  
+  
+  def calcularCuil
+      # xy = 20 o 27
+      # dni = a b c d e f g h
+#------------------------------------------------------------------       
+      # x * 5 = x5
+      # y * 4 = x4
+      # -
+      # a * 3 = a3
+      # b * 2 = b2
+      # c * 7 = c7
+      # d * 6 = d6
+      # e * 5 = e5
+      # f * 4 = f4
+      # g * 3 = g3
+      # h * 2 = h2
+#------------------------------------------------------------------       
+      # valor1 = (x5 + x4 + a3 + b2 + c7 + d6 + e5 + f4 + g3 + h2)
+#------------------------------------------------------------------       
+      # z = valor1 % 11 
+#------------------------------------------------------------------       
+      # si z = 0 entonces
+      # z = 0     # redundante pero para verlo mejor
+#------------------------------------------------------------------       
+      # sino
+        # si z = 1 entonces
+          # si masculino
+            # z = 9 # la cola del cuil = 9
+            # y = 3 # entonces queda xy = 23
+          # si femenino
+            # z = 4 # la cola del cuil = 4
+            # y = 3   # entonces queda xy = 23
+        # sino 
+          # z = 11 - valor1
+        # finsi
+      # finsi
+#------------------------------------------------------------------       
+      # cuil =  x y - a b c d e f g h - z
+      # retornar cuil
   end
 end
