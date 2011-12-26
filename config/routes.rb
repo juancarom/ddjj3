@@ -1,4 +1,10 @@
 Ddjj3::Application.routes.draw do
+  resources :users
+
+  get "session/login"
+
+  get "session/logout"
+
   post "relacion_agente_profesion/guardar"
   
  

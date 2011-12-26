@@ -1,0 +1,1964 @@
+
+
+Started GET "/users" for 127.0.0.1 at 2011-12-26 15:55:55 -0300
+  Processing by UsersController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+SQLite3::SQLException: no such table: users: SELECT     "users".* FROM       "users"
+Completed   in 90ms
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such table: users: SELECT     "users".* FROM       "users"):
+  app/controllers/users_controller.rb:5:in `index'
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.6ms)
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.6ms)
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (137.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (88.6ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.4ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+Migrating to CreateAgentes (20111209234104)
+  [1m[36mSQL (0.5ms)[0m  [1mCREATE TABLE "agentes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "dni" integer, "nombre" varchar(255), "apellido" varchar(255), "fecha_de_nacimiento" date, "cuil" varchar(255), "matricula_numero" integer, "email" varchar(255), "numero_de_celular" integer, "numero_de_telefono_fijo" integer, "domicilio_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20111209234104')
+Migrating to CreateProfesions (20111210104730)
+  [1m[36mSQL (0.4ms)[0m  [1mCREATE TABLE "profesions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nombre" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20111210104730')
+Migrating to CreateProfesionAgentes (20111210104805)
+  [1m[36mSQL (0.6ms)[0m  [1mCREATE TABLE "profesion_agentes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "profesion_id" integer, "agente_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20111210104805')
+Migrating to CreateUsers (20111226185307)
+  [1m[36mSQL (0.5ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "password" varchar(255), "email" varchar(255), "last_login" datetime, "created" datetime, "active" boolean, "is_staff" boolean, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20111226185307')
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("agentes")
+  [1m[36mSQL (1.4ms)[0m  [1mPRAGMA index_list("profesion_agentes")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("profesions")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
+
+
+Started GET "/users" for 127.0.0.1 at 2011-12-26 15:56:22 -0300
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered users/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 20ms (Views: 7.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2011-12-26 15:56:25 -0300
+  Processing by UsersController#new as HTML
+Rendered users/_form.html.erb (144.4ms)
+Rendered users/new.html.erb within layouts/application (148.2ms)
+Completed 200 OK in 167ms (Views: 152.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2011-12-26 15:59:21 -0300
+  Processing by UsersController#new as HTML
+Rendered users/_form.html.erb (49.1ms)
+Rendered users/new.html.erb within layouts/application (52.8ms)
+Completed 200 OK in 72ms (Views: 57.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2011-12-26 15:59:36 -0300
+  Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YTAqHZ+VoDGqwDga8+DqpgQKquKBeOSQdUKIMkwtpg0=", "user"=>{"username"=>"juan", "password"=>"[FILTERED]", "email"=>"juan.ca.rom@gmail.com", "is_staff"=>"1"}, "commit"=>"Create User"}
+Completed   in 22ms
+
+NoMethodError (private method `now' called for Date:Class):
+  app/controllers/users_controller.rb:45:in `create'
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.3ms)
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.3ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2011-12-26 16:03:20 -0300
+  Processing by UsersController#new as HTML
+Rendered users/_form.html.erb (21.2ms)
+Rendered users/new.html.erb within layouts/application (24.9ms)
+Completed 200 OK in 44ms (Views: 29.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2011-12-26 16:03:22 -0300
+  Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YTAqHZ+VoDGqwDga8+DqpgQKquKBeOSQdUKIMkwtpg0=", "user"=>{"username"=>"juan", "password"=>"[FILTERED]", "email"=>"juan.ca.rom@gmail.com", "is_staff"=>"1"}, "commit"=>"Create User"}
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("active", "created", "created_at", "email", "is_staff", "last_login", "password", "updated_at", "username") VALUES ('t', '2011-12-26 19:03:22.000000', '2011-12-26 19:03:22.219922', 'juan.ca.rom@gmail.com', 't', NULL, '12345', '2011-12-26 19:03:22.219922', 'juan')[0m
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 240ms
+
+
+Started GET "/users/1" for 127.0.0.1 at 2011-12-26 16:03:22 -0300
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSQL (0.6ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered users/show.html.erb within layouts/application (16.1ms)
+Completed 200 OK in 39ms (Views: 20.6ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2011-12-26 16:05:31 -0300
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered users/show.html.erb within layouts/application (16.3ms)
+Completed 200 OK in 65ms (Views: 20.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:08:29 -0300
+  Processing by SessionController#login as HTML
+Rendered session/login.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 7ms (Views: 6.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:08:59 -0300
+  Processing by SessionController#login as HTML
+Rendered session/login.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 7ms (Views: 6.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:09:24 -0300
+  Processing by SessionController#login as HTML
+Rendered session/login.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 7ms (Views: 6.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:10:03 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:10:23 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:10:24 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:10:24 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:10:24 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:10:25 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:10:25 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:10:25 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:10:32 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:10:32 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:10:33 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:10:33 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:10:33 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:10:33 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:10:33 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:10:33 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:10:39 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:10:39 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:10:39 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:10:51 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:10:52 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:10:52 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:10:52 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2011-12-26 16:10:54 -0300
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered users/show.html.erb within layouts/application (15.5ms)
+Completed 200 OK in 38ms (Views: 20.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:11:02 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/sessions/login" for 127.0.0.1 at 2011-12-26 16:11:09 -0300
+
+ActionController::RoutingError (No route matches "/sessions/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:11:13 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:11:43 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:11:46 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:11:46 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:11:46 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:11:46 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:11:58 -0300
+  Processing by SessionController#login as HTML
+Rendered session/login.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 7ms (Views: 6.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session/session/login" for 127.0.0.1 at 2011-12-26 16:12:03 -0300
+
+ActionController::RoutingError (No route matches "/session/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:12:18 -0300
+  Processing by SessionController#login as HTML
+Rendered session/login.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 7ms (Views: 6.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:12:19 -0300
+  Processing by SessionController#login as HTML
+Rendered session/login.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:12:19 -0300
+  Processing by SessionController#login as HTML
+Rendered session/login.html.erb within layouts/application (27.9ms)
+Completed 200 OK in 33ms (Views: 32.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:12:19 -0300
+  Processing by SessionController#login as HTML
+Rendered session/login.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 7ms (Views: 7.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session/login" for 127.0.0.1 at 2011-12-26 16:12:21 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started POST "/session/login" for 127.0.0.1 at 2011-12-26 16:12:46 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:13:01 -0300
+  Processing by SessionController#login as HTML
+Rendered session/login.html.erb within layouts/application (27.6ms)
+Completed 200 OK in 33ms (Views: 32.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:13:03 -0300
+  Processing by SessionController#login as HTML
+Rendered session/login.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:14:12 -0300
+  Processing by SessionController#login as HTML
+Rendered session/login.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 7ms (Views: 6.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:14:33 -0300
+  Processing by SessionController#login as HTML
+Rendered session/login.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:14:35 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+Rendered session/login.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 7ms (Views: 6.9ms | ActiveRecord: 0.0ms)
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:19:12 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.6ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Rendered session/login.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 70ms (Views: 6.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:19:13 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Rendered session/login.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 35ms (Views: 6.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:19:15 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.7ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Rendered session/login.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 67ms (Views: 6.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:22:47 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Rendered session/login.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 35ms (Views: 6.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:22:48 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Rendered session/login.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 35ms (Views: 6.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:22:49 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Rendered session/login.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 64ms (Views: 6.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:23:31 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.6ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Rendered session/login.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 65ms (Views: 6.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:23:32 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Rendered session/login.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 35ms (Views: 6.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:23:33 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Rendered session/login.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 35ms (Views: 7.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:23:34 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Rendered session/login.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 62ms (Views: 6.6ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:23:34 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Rendered session/login.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 36ms (Views: 7.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:23:34 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Rendered session/login.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 34ms (Views: 6.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:23:35 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Rendered session/login.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 64ms (Views: 6.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:23:42 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.7ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Rendered session/login.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 66ms (Views: 6.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:23:44 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Rendered session/login.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 36ms (Views: 7.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:24:13 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Rendered session/login.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 34ms (Views: 6.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:24:15 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Rendered session/login.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 63ms (Views: 7.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:24:17 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.6ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Rendered session/login.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 37ms (Views: 6.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:24:18 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.6ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Rendered session/login.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 36ms (Views: 6.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:24:18 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.6ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Rendered session/login.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 37ms (Views: 7.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:24:33 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:24:34 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:24:34 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:24:35 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:24:35 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:24:35 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:24:35 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:24:35 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:24:36 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:24:36 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:24:36 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:24:36 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:24:36 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:25:12 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:25:13 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:25:13 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:25:13 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:25:14 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:25:18 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:25:20 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:25:20 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (29.3ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:25:20 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:25:20 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:25:21 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.5ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:25:21 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:25:21 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.6ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:25:21 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:25:21 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:25:22 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:25:22 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:25:22 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:25:22 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:25:22 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:25:22 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.5ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:25:23 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:25:23 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:25:23 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:25:23 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:25:23 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:25:24 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:25:24 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:25:25 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:25:26 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:25:26 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:25:27 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:25:27 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:25:27 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:25:28 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:25:28 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:25:28 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/session/" for 127.0.0.1 at 2011-12-26 16:25:35 -0300
+
+ActionController::RoutingError (No route matches "/session"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/session/logout" for 127.0.0.1 at 2011-12-26 16:25:39 -0300
+  Processing by SessionController#logout as HTML
+Rendered session/logout.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 7ms (Views: 6.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:25:44 -0300
+
+ActionController::RoutingError (No route matches "/session/login"):
+  
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:26:08 -0300
+  Processing by SessionController#login as HTML
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Rendered session/login.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 64ms (Views: 7.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:26:12 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.6ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Rendered session/login.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 35ms (Views: 6.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:26:46 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.6ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login
+Completed 302 Found in 30ms
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:26:46 -0300
+  Processing by SessionController#login as HTML
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login
+Completed 302 Found in 59ms
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:26:46 -0300
+  Processing by SessionController#login as HTML
+  [1m[35mSQL (0.6ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login
+Completed 302 Found in 32ms
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:26:46 -0300
+  Processing by SessionController#login as HTML
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (2.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login
+Completed 302 Found in 60ms
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:26:47 -0300
+  Processing by SessionController#login as HTML
+  [1m[35mSQL (0.6ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login
+Completed 302 Found in 30ms
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:26:47 -0300
+  Processing by SessionController#login as HTML
+  [1m[35mSQL (0.6ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login
+Completed 302 Found in 31ms
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:26:47 -0300
+  Processing by SessionController#login as HTML
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login
+Completed 302 Found in 29ms
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:26:47 -0300
+  Processing by SessionController#login as HTML
+  [1m[35mSQL (0.6ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login
+Completed 302 Found in 31ms
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:26:47 -0300
+  Processing by SessionController#login as HTML
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login
+Completed 302 Found in 29ms
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:26:47 -0300
+  Processing by SessionController#login as HTML
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login
+Completed 302 Found in 30ms
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:26:47 -0300
+  Processing by SessionController#login as HTML
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login
+Completed 302 Found in 57ms
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:26:48 -0300
+  Processing by SessionController#login as HTML
+  [1m[35mSQL (0.6ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login
+Completed 302 Found in 31ms
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:26:48 -0300
+  Processing by SessionController#login as HTML
+  [1m[35mSQL (0.6ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (2.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login
+Completed 302 Found in 60ms
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:26:48 -0300
+  Processing by SessionController#login as HTML
+  [1m[35mSQL (0.6ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login
+Completed 302 Found in 31ms
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:26:48 -0300
+  Processing by SessionController#login as HTML
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login
+Completed 302 Found in 65ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:26:48 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 29ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:26:48 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 30ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:26:48 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.6ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 30ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:26:49 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 30ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:26:49 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.6ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 58ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:26:49 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 29ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:26:49 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.6ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (26.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 58ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:26:49 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.6ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 30ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:26:49 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.6ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 60ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:26:49 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 29ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:26:49 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.6ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 30ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:26:50 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 35ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:26:50 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.6ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 31ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:26:50 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 57ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:26:50 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 29ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:26:50 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 58ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:26:50 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.6ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 30ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:26:50 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.9ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 60ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:26:50 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 29ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:26:51 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 30ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:26:51 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 29ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:26:53 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 30ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:26:53 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 58ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:26:53 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.6ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 30ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:26:53 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.6ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 60ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:26:53 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 30ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:26:53 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (28.6ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 58ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:26:54 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 29ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:26:54 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.6ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 30ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:26:54 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 29ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:26:54 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.6ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 31ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:26:54 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.6ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 57ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:26:54 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 30ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:26:54 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 58ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:26:54 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.6ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 30ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:26:55 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.6ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (2.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 59ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:26:55 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.6ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 30ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:26:55 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 31ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:26:55 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.6ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 30ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:26:55 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 30ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:26:55 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.6ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 58ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:26:55 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 31ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:54:23 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 140ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:54:24 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 56ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:54:24 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 30ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:54:24 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 56ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:54:24 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 28ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:54:24 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 58ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:54:24 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 28ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:54:24 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 55ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:54:25 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 28ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:54:25 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[36mUser Load (2.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 59ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:54:25 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 30ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:54:25 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 59ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:54:25 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 29ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:54:25 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 58ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:54:25 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 29ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:54:25 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 29ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:54:26 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 28ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:54:26 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 32ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:54:26 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 28ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:54:26 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 29ms
+
+
+Started GET "/session/login?user=juan&pass=12345" for 127.0.0.1 at 2011-12-26 16:54:26 -0300
+  Processing by SessionController#login as HTML
+  Parameters: {"user"=>"juan", "pass"=>"12345"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')
+Redirected to http://localhost:3000/session/login?user=juan&pass=12345
+Completed 302 Found in 32ms
+
+
+Started GET "/session/login" for 127.0.0.1 at 2011-12-26 16:54:28 -0300
+  Processing by SessionController#login as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'juan')[0m
+Redirected to 
+Completed   in 29ms
+
+ActionController::RedirectBackError (No HTTP_REFERER was set in the request to this action, so redirect_to :back could not be called successfully. If this is a test, make sure to specify request.env["HTTP_REFERER"].):
+  app/controllers/session_controller.rb:16:in `login'
+
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.7ms)
+Rendered /home/juan/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (9.4ms)
