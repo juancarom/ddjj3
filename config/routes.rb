@@ -1,4 +1,22 @@
 Ddjj3::Application.routes.draw do
+  get "control_ddj_js/verDDJJsAgente"
+
+  get "control_ddj_js/verDDJJ"
+
+  get "control_ddj_js/cargarDDJJ"
+
+  get "control_ddj_js/modificarDDJJ"
+
+  get "control_ddj_js/eliminarDDJJ"
+
+  get "control_ddj_js/verDDJJsEscuela"
+
+  get "control_ddj_js/AprobarRechazarItemDDJJ"
+
+  get "control_ddj_js/verTodasLasDDJJs"
+
+  get "control_ddj_js/verDDJJsIncompatibles"
+
   resources :grupo_horario_item_ddjjs
 
   resources :item_ddjjs

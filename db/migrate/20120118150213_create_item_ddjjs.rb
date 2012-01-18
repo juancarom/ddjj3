@@ -8,7 +8,8 @@ class CreateItemDdjjs < ActiveRecord::Migration
       t.integer :funcion_id
       t.date :FechaDeAlta
       t.integer :CantidadDeHorasSemanales
-
+      t.integer :cargado
+      t.integer :aprobado            # 0 no visto, 1 aprobado, en 2 rechazado
       t.timestamps
     end
   end

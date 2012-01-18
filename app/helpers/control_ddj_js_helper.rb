@@ -1,0 +1,2 @@
+module ControlDdjJsHelper
+end
