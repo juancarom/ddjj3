@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  localidad_id: 1
+  calle: MyString
+  numero: 1
+  piso: 1
+  dpto: MyString
+  observaciones: MyText
+
+two:
+  localidad_id: 1
+  calle: MyString
+  numero: 1
+  piso: 1
+  dpto: MyString
+  observaciones: MyText

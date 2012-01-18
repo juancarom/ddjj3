@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Codigo:</b>
+  <%= @materia_cargo.codigo %>
+</p>
+
+<p>
+  <b>Nombre:</b>
+  <%= @materia_cargo.nombre %>
+</p>
+
+<p>
+  <b>Cant horas semanales:</b>
+  <%= @materia_cargo.cant_horas_semanales %>
+</p>
+
+
+<%= link_to 'Edit', edit_materia_cargo_path(@materia_cargo) %> |
+<%= link_to 'Back', materia_cargos_path %>

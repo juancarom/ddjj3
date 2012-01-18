@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  codigo: MyString
+  nombre: MyString
+  cant_horas_semanales: 1
+
+two:
+  codigo: MyString
+  nombre: MyString
+  cant_horas_semanales: 1

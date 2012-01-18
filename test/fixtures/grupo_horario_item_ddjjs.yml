@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  itemDDJJ_id: 1
+  dia: 1
+  HorarioInicio: 2012-01-18 12:02:29
+  HorarioFin: 2012-01-18 12:02:29
+
+two:
+  itemDDJJ_id: 1
+  dia: 1
+  HorarioInicio: 2012-01-18 12:02:29
+  HorarioFin: 2012-01-18 12:02:29

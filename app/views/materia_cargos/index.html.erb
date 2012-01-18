@@ -1,0 +1,27 @@
+<h1>Listing materia_cargos</h1>
+
+<table>
+  <tr>
+    <th>Codigo</th>
+    <th>Nombre</th>
+    <th>Cant horas semanales</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @materia_cargos.each do |materia_cargo| %>
+  <tr>
+    <td><%= materia_cargo.codigo %></td>
+    <td><%= materia_cargo.nombre %></td>
+    <td><%= materia_cargo.cant_horas_semanales %></td>
+    <td><%= link_to 'Show', materia_cargo %></td>
+    <td><%= link_to 'Edit', edit_materia_cargo_path(materia_cargo) %></td>
+    <td><%= link_to 'Destroy', materia_cargo, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Materia cargo', new_materia_cargo_path %>

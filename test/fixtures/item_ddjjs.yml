@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  DDJJ_id: 1
+  numeroDeItem: 1
+  organizacion_id: 1
+  materiaCargo_id: 1
+  funcion_id: 1
+  FechaDeAlta: 2012-01-18
+  CantidadDeHorasSemanales: 1
+
+two:
+  DDJJ_id: 1
+  numeroDeItem: 1
+  organizacion_id: 1
+  materiaCargo_id: 1
+  funcion_id: 1
+  FechaDeAlta: 2012-01-18
+  CantidadDeHorasSemanales: 1

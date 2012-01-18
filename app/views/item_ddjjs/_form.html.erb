@@ -1,0 +1,45 @@
+<%= form_for(@item_ddjj) do |f| %>
+  <% if @item_ddjj.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@item_ddjj.errors.count, "error") %> prohibited this item_ddjj from being saved:</h2>
+
+      <ul>
+      <% @item_ddjj.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :DDJJ_id %><br />
+    <%= f.text_field :DDJJ_id %>
+  </div>
+  <div class="field">
+    <%= f.label :numeroDeItem %><br />
+    <%= f.text_field :numeroDeItem %>
+  </div>
+  <div class="field">
+    <%= f.label :organizacion_id %><br />
+    <%= f.text_field :organizacion_id %>
+  </div>
+  <div class="field">
+    <%= f.label :materiaCargo_id %><br />
+    <%= f.text_field :materiaCargo_id %>
+  </div>
+  <div class="field">
+    <%= f.label :funcion_id %><br />
+    <%= f.text_field :funcion_id %>
+  </div>
+  <div class="field">
+    <%= f.label :FechaDeAlta %><br />
+    <%= f.date_select :FechaDeAlta %>
+  </div>
+  <div class="field">
+    <%= f.label :CantidadDeHorasSemanales %><br />
+    <%= f.text_field :CantidadDeHorasSemanales %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

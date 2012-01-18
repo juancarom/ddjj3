@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Ddjj:</b>
+  <%= @item_ddjj.DDJJ_id %>
+</p>
+
+<p>
+  <b>Numerodeitem:</b>
+  <%= @item_ddjj.numeroDeItem %>
+</p>
+
+<p>
+  <b>Organizacion:</b>
+  <%= @item_ddjj.organizacion_id %>
+</p>
+
+<p>
+  <b>Materiacargo:</b>
+  <%= @item_ddjj.materiaCargo_id %>
+</p>
+
+<p>
+  <b>Funcion:</b>
+  <%= @item_ddjj.funcion_id %>
+</p>
+
+<p>
+  <b>Fechadealta:</b>
+  <%= @item_ddjj.FechaDeAlta %>
+</p>
+
+<p>
+  <b>Cantidaddehorassemanales:</b>
+  <%= @item_ddjj.CantidadDeHorasSemanales %>
+</p>
+
+
+<%= link_to 'Edit', edit_item_ddjj_path(@item_ddjj) %> |
+<%= link_to 'Back', item_ddjjs_path %>

@@ -1,0 +1,2 @@
+module ItemDdjJsHelper
+end

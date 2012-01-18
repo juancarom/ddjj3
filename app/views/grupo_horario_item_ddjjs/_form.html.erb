@@ -1,0 +1,33 @@
+<%= form_for(@grupo_horario_item_ddjj) do |f| %>
+  <% if @grupo_horario_item_ddjj.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@grupo_horario_item_ddjj.errors.count, "error") %> prohibited this grupo_horario_item_ddjj from being saved:</h2>
+
+      <ul>
+      <% @grupo_horario_item_ddjj.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :itemDDJJ_id %><br />
+    <%= f.text_field :itemDDJJ_id %>
+  </div>
+  <div class="field">
+    <%= f.label :dia %><br />
+    <%= f.text_field :dia %>
+  </div>
+  <div class="field">
+    <%= f.label :HorarioInicio %><br />
+    <%= f.time_select :HorarioInicio %>
+  </div>
+  <div class="field">
+    <%= f.label :HorarioFin %><br />
+    <%= f.time_select :HorarioFin %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

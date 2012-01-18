@@ -1,0 +1,29 @@
+<h1>Listing ddjjs</h1>
+
+<table>
+  <tr>
+    <th>Agente</th>
+    <th>Numero</th>
+    <th>Fechaddjj</th>
+    <th>Completa</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @ddjjs.each do |ddjj| %>
+  <tr>
+    <td><%= ddjj.agente_id %></td>
+    <td><%= ddjj.numero %></td>
+    <td><%= ddjj.fechaDDJJ %></td>
+    <td><%= ddjj.completa %></td>
+    <td><%= link_to 'Show', ddjj %></td>
+    <td><%= link_to 'Edit', edit_ddjj_path(ddjj) %></td>
+    <td><%= link_to 'Destroy', ddjj, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Ddjj', new_ddjj_path %>

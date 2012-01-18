@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  agente_id: 1
+  numero: 1
+  fechaDDJJ: 2012-01-18
+  completa: false
+
+two:
+  agente_id: 1
+  numero: 1
+  fechaDDJJ: 2012-01-18
+  completa: false

@@ -1,0 +1,33 @@
+<%= form_for(@ddjj) do |f| %>
+  <% if @ddjj.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ddjj.errors.count, "error") %> prohibited this ddjj from being saved:</h2>
+
+      <ul>
+      <% @ddjj.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :agente_id %><br />
+    <%= f.text_field :agente_id %>
+  </div>
+  <div class="field">
+    <%= f.label :numero %><br />
+    <%= f.text_field :numero %>
+  </div>
+  <div class="field">
+    <%= f.label :fechaDDJJ %><br />
+    <%= f.date_select :fechaDDJJ %>
+  </div>
+  <div class="field">
+    <%= f.label :completa %><br />
+    <%= f.check_box :completa %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

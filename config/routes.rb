@@ -1,4 +1,22 @@
 Ddjj3::Application.routes.draw do
+  resources :grupo_horario_item_ddjjs
+
+  resources :item_ddjjs
+
+  resources :materia_cargos
+
+  resources :funcions
+
+  resources :ddjjs
+
+  resources :localidads
+
+  resources :provincias
+
+  resources :organizacions
+
+  resources :domicilios
+
   resources :users
 
   get "session/login"

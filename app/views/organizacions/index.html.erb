@@ -1,0 +1,27 @@
+<h1>Listing organizacions</h1>
+
+<table>
+  <tr>
+    <th>Numero</th>
+    <th>Nombre</th>
+    <th>Domicilio</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @organizacions.each do |organizacion| %>
+  <tr>
+    <td><%= organizacion.numero %></td>
+    <td><%= organizacion.nombre %></td>
+    <td><%= organizacion.domicilio_id %></td>
+    <td><%= link_to 'Show', organizacion %></td>
+    <td><%= link_to 'Edit', edit_organizacion_path(organizacion) %></td>
+    <td><%= link_to 'Destroy', organizacion, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Organizacion', new_organizacion_path %>

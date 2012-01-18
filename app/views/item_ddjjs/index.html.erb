@@ -1,0 +1,35 @@
+<h1>Listing item_ddjjs</h1>
+
+<table>
+  <tr>
+    <th>Ddjj</th>
+    <th>Numerodeitem</th>
+    <th>Organizacion</th>
+    <th>Materiacargo</th>
+    <th>Funcion</th>
+    <th>Fechadealta</th>
+    <th>Cantidaddehorassemanales</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @item_ddjjs.each do |item_ddjj| %>
+  <tr>
+    <td><%= item_ddjj.DDJJ_id %></td>
+    <td><%= item_ddjj.numeroDeItem %></td>
+    <td><%= item_ddjj.organizacion_id %></td>
+    <td><%= item_ddjj.materiaCargo_id %></td>
+    <td><%= item_ddjj.funcion_id %></td>
+    <td><%= item_ddjj.FechaDeAlta %></td>
+    <td><%= item_ddjj.CantidadDeHorasSemanales %></td>
+    <td><%= link_to 'Show', item_ddjj %></td>
+    <td><%= link_to 'Edit', edit_item_ddjj_path(item_ddjj) %></td>
+    <td><%= link_to 'Destroy', item_ddjj, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Item ddjj', new_item_ddjj_path %>

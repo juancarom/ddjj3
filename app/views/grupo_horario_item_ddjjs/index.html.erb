@@ -1,0 +1,29 @@
+<h1>Listing grupo_horario_item_ddjjs</h1>
+
+<table>
+  <tr>
+    <th>Itemddjj</th>
+    <th>Dia</th>
+    <th>Horarioinicio</th>
+    <th>Horariofin</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @grupo_horario_item_ddjjs.each do |grupo_horario_item_ddjj| %>
+  <tr>
+    <td><%= grupo_horario_item_ddjj.itemDDJJ_id %></td>
+    <td><%= grupo_horario_item_ddjj.dia %></td>
+    <td><%= grupo_horario_item_ddjj.HorarioInicio %></td>
+    <td><%= grupo_horario_item_ddjj.HorarioFin %></td>
+    <td><%= link_to 'Show', grupo_horario_item_ddjj %></td>
+    <td><%= link_to 'Edit', edit_grupo_horario_item_ddjj_path(grupo_horario_item_ddjj) %></td>
+    <td><%= link_to 'Destroy', grupo_horario_item_ddjj, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Grupo horario item ddjj', new_grupo_horario_item_ddjj_path %>
