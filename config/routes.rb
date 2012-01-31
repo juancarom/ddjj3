@@ -1,21 +1,54 @@
 Ddjj3::Application.routes.draw do
-  get "control_ddj_js/verDDJJsAgente"
+  
+  get "adm_ddjj/verDDJJAgente"
 
-  get "control_ddj_js/verDDJJ"
+  get "adm_ddjj/ListarDDJJsIncompatibles"
 
-  get "control_ddj_js/cargarDDJJ"
+  get "adm_ddjj/ListarDDJJsEscuela"
 
-  get "control_ddj_js/modificarDDJJ"
+  get "adm_ddjj/ListarDDJJsAgente"
 
-  get "control_ddj_js/eliminarDDJJ"
+  get "adm_ddjj/AprobarItemDDJJ"
 
-  get "control_ddj_js/verDDJJsEscuela"
+  get "adm_ddjj/ObservarItemDDJJ"
 
-  get "control_ddj_js/AprobarRechazarItemDDJJ"
+  get "adm_ddjj/RechazarItemDDJJ"
 
-  get "control_ddj_js/verTodasLasDDJJs"
+  get "adm_ddjj/AgregarItemDDJJ"
 
-  get "control_ddj_js/verDDJJsIncompatibles"
+  get "adm_ddjj/EditarItemDDJJ"
+
+  get "adm_ddjj/EliminarItemDDJJ"
+
+  get "adm_ddjj/EditarGrupoHorarioItemDDJJ"
+
+  get "adm_ddjj/AgregarGrupoHorarioItemDDJJ"
+
+  get "adm_ddjj/EliminarGrupoHorarioItemDDJJ"
+
+  get "adm_ddjj/verDDJJ"
+
+  get "adm_ddjj/verDDJJsAgente"
+
+  get "adm_ddjj/ModificarDDJJ"
+
+  get "adm_ddjj/CargarDDJJ"
+
+  get "adm_ddjj/ListarDDJJs"
+
+  get "adm_ddjj/ListarDDJJsI"
+
+  get "adm_ddjj/verDdjj"
+
+  get "adm_ddjj/ModificarDdjj"
+
+  get "adm_ddjj/CargarDdjj"
+
+  get "adm_ddjj/ListarDdjjs"
+
+  get "adm_ddjj/EliminarDdjj"
+
+
 
   resources :grupo_horario_item_ddjjs
 
